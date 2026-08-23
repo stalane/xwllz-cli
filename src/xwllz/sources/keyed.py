@@ -104,6 +104,8 @@ class CensysSource(_KeyedSource):
             return None
 
     async def search_certificates(self, domain: str, max_hits: int = 100) -> list[str] | None:
+        if not self.enabled:
+            return None
         payload = {"q": f"names: {domain}", "per_page": min(max_hits, 100)}
         try:
             async with httpx.AsyncClient(timeout=15.0, auth=(self.key, self.secret)) as client:
