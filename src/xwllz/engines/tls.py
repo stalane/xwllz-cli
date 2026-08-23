@@ -13,8 +13,8 @@ from cryptography.hazmat.backends import default_backend
 
 @dataclass
 class TlsResult:
-    host: str
-    port: int
+    host: str = ""
+    port: int = 0
     cn: str | None = None
     san: list[str] = field(default_factory=list)
     issuer: str | None = None

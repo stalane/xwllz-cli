@@ -1,3 +1,3 @@
 """xwllz — attack-surface management for blue teams."""
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
