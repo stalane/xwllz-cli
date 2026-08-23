@@ -29,7 +29,11 @@ def _query(domain: str, rtype: str, timeout: float = 5.0) -> list[str]:
         answers = resolver.resolve(domain, rtype)
     except (dns.resolver.NoAnswer, dns.resolver.NXDOMAIN, dns.resolver.NoNameservers, dns.exception.DNSException):
         return []
-    return [str(r).rstrip(".") for r in answers]
+    values = [str(r).rstrip(".") for r in answers]
+    if rtype == "TXT":
+        # dnspython renders TXT values with surrounding double quotes.
+        values = [v.strip('"') for v in values]
+    return values
 
 
 def resolve_ips(domain: str, timeout: float = 5.0) -> list[str]:
