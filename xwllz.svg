@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" overflow="hidden">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#14161c" />
+      <stop offset="60%" stop-color="#0a0b0d" />
+      <stop offset="100%" stop-color="#050506" />
+    </radialGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="50%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+    </radialGradient>
+
+    <!-- Mask to fade the pattern out from the center -->
+    <radialGradient id="maskGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="60%" stop-color="#000000" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </radialGradient>
+    <mask id="centerFade">
+      <rect width="100%" height="100%" fill="url(#maskGrad)" />
+    </mask>
+
+    <!-- Glow Filter for Hero X's -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Symbols -->
+    <!-- Basic Wall X (for dense pattern, no heavy filters for performance) -->
+    <g id="xWall">
+      <path d="M -15 -15 L 15 15 M 15 -15 L -15 15" stroke="#1a2a3a" stroke-width="8" stroke-linecap="round" />
+      <path d="M -15 -15 L 15 15 M 15 -15 L -15 15" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    </g>
+
+    <!-- Hero X (Large, glowing, for focal points) -->
+    <g id="heroX">
+      <path d="M -50 -50 L 50 50 M 50 -50 L -50 50" stroke="#4a90e2" stroke-width="20" stroke-linecap="round" filter="url(#glow)" opacity="0.3" />
+      <path d="M -50 -50 L 50 50 M 50 -50 L -50 50" stroke="#e0e6ed" stroke-width="6" stroke-linecap="round" />
+      <path d="M -50 -50 L 50 50 M 50 -50 L -50 50" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- Scatter X (Medium, glowing, for dynamic break-up) -->
+    <g id="scatterX">
+      <path d="M -20 -20 L 20 20 M 20 -20 L -20 20" stroke="#4a90e2" stroke-width="8" stroke-linecap="round" filter="url(#glow)" opacity="0.6" />
+      <path d="M -20 -20 L 20 20 M 20 -20 L -20 20" stroke="#e0e6ed" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- Patterns -->
+    <!-- Dense staggered grid (Forms the "Wall" texture) -->
+    <pattern id="denseWall" width="100" height="50" patternUnits="userSpaceOnUse">
+      <use href="#xWall" x="50" y="25" />
+      <use href="#xWall" x="0" y="50" opacity="0.5" />
+      <use href="#xWall" x="100" y="50" opacity="0.5" />
+    </pattern>
+
+    <!-- Sparse larger grid (Adds depth and complexity) -->
+    <pattern id="sparseWall" width="300" height="150" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <use href="#xWall" x="150" y="75" />
+      <use href="#xWall" x="0" y="150" opacity="0.4" />
+      <use href="#xWall" x="300" y="150" opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="100%" height="100%" fill="url(#bgGlow)" />
+
+  <!-- Sparse Wall Layer (Background depth) -->
+  <rect width="100%" height="100%" fill="url(#sparseWall)" opacity="0.3" />
+
+  <!-- Dense Wall Layer (Foreground texture, faded in center) -->
+  <rect width="100%" height="100%" fill="url(#denseWall)" mask="url(#centerFade)" />
+
+  <!-- Center Content Glow (Anchors the center for website content) -->
+  <circle cx="50%" cy="50%" r="45%" fill="url(#centerGlow)" />
+
+  <!-- Hero Elements (Large X's breaking the wall pattern) -->
+  <g opacity="0.8">
+    <use href="#heroX" transform="translate(200 180) rotate(15) scale(1.6)" />
+    <use href="#heroX" transform="translate(1400 250) rotate(-25) scale(2.2)" opacity="0.7" />
+    <use href="#heroX" transform="translate(120 800) rotate(45) scale(2.8)" opacity="0.9" />
+    <use href="#heroX" transform="translate(1500 780) rotate(-15) scale(2)" />
+    <use href="#heroX" transform="translate(800 150) rotate(75) scale(1.2)" opacity="0.5" />
+  </g>
+
+  <!-- Scattered Elements (Dynamic floating X's) -->
+  <g>
+    <use href="#scatterX" transform="translate(450 200) rotate(30) scale(1.2)" />
+    <use href="#scatterX" transform="translate(1100 300) rotate(-45) scale(1.5)" />
+    <use href="#scatterX" transform="translate(300 650) rotate(60) scale(1)" />
+    <use href="#scatterX" transform="translate(1300 650) rotate(-80) scale(1.8)" />
+    <use href="#scatterX" transform="translate(150 400) rotate(10) scale(0.8)" opacity="0.6" />
+    <use href="#scatterX" transform="translate(1450 500) rotate(25) scale(1.1)" opacity="0.7" />
+    <use href="#scatterX" transform="translate(600 750) rotate(-15) scale(0.9)" opacity="0.5" />
+    <use href="#scatterX" transform="translate(1000 120) rotate(40) scale(1.3)" opacity="0.8" />
+  </g>
+
+  <!-- Vignette Overlay (Darkens edges for immersive focus) -->
+  <rect width="100%" height="100%" fill="url(#vignette)" />
+</svg>
