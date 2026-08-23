@@ -77,6 +77,14 @@ xwllz cert <host>                     TLS certificate details
 
 Data is stored in SQLite at `~/.local/share/xwllz/xwllz.db`.
 
+## Disclaimer
+
+This software is intended for defensive security purposes only. Use it solely on systems 
+and networks you own or are explicitly authorized to test. The author(s) assume no liability 
+for any damages or legal issues arising from misuse. 
+
+Always comply with all applicable laws and regulations.
+
 ## License
 
 MIT
