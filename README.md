@@ -1,9 +1,39 @@
+<p align="center">
+  <img src="docs/logo.svg" width="420" alt="xwllz">
+</p>
+
 # xwllz — Attack-surface management for blue teams
+
+[![PyPI version](https://img.shields.io/pypi/v/xwllz?color=4a90e2)](https://pypi.org/project/xwllz/)
+[![Python versions](https://img.shields.io/pypi/pyversions/xwllz?color=4a90e2)](https://pypi.org/project/xwllz/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-4a90e2)](LICENSE)
+[![CI](https://github.com/stalane/xwllz-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/stalane/xwllz-cli/actions/workflows/ci.yml)
 
 `xwllz` is a CLI for discovering, monitoring, and reporting on your **own external
 attack surface**. It maps the domains, subdomains, IPs, services, certificates, and
 exposure points an attacker can reach — so blue teams can see their perimeter before
 attackers do.
+
+## How it works
+
+<p align="center">
+  <img src="docs/architecture.svg" width="800" alt="xwllz architecture">
+</p>
+
+`xwllz` is **pure Python by default** — no system binaries required. It detects
+optional accelerators (`nmap`, `masscan`, `rustscan`, `nuclei`, `httpx`, `dnsx`,
+`dig`) on your PATH and uses them automatically when present, and falls back to
+its built-in engines otherwise. Data is stored in SQLite.
+
+## The ASM loop
+
+<p align="center">
+  <img src="docs/pipeline.svg" width="800" alt="xwllz attack-surface loop">
+</p>
+
+Each run produces a **snapshot**. `xwllz monitor` re-runs discovery and diffs
+against the previous snapshot, showing you exactly what's **new, changed, or
+removed** across your perimeter.
 
 ## Quickstart
 
@@ -15,10 +45,6 @@ xwllz discover acme
 xwllz monitor acme        # re-scan and show what changed
 xwllz report acme --format md
 ```
-
-No system binaries are required. `xwllz` is pure Python by default; if you have
-`nmap`, `masscan`, `rustscan`, `nuclei`, `httpx`, `dnsx`, or `dig` on your PATH,
-it will detect and use them as accelerators automatically.
 
 ## Data sources
 

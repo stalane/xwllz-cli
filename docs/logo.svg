@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#14161c" />
+      <stop offset="60%" stop-color="#0a0b0d" />
+      <stop offset="100%" stop-color="#050506" />
+    </radialGradient>
+
+    <!-- Glow filter for the X mark -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradient for the X mark's stroke -->
+    <linearGradient id="xGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a90e2" />
+      <stop offset="100%" stop-color="#e0e6ed" />
+    </linearGradient>
+
+    <!-- Gradient for text -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e0e6ed" />
+      <stop offset="100%" stop-color="#4a90e2" />
+    </linearGradient>
+
+    <!-- Drop shadow for text -->
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGlow)" rx="20" />
+
+  <!-- Subtle grid pattern in background (to tie into the wall theme) -->
+  <g opacity="0.05">
+    <line x1="0" y1="50" x2="800" y2="50" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="150" x2="800" y2="150" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="250" x2="800" y2="250" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#4a90e2" stroke-width="1" />
+    <line x1="0" y1="350" x2="800" y2="350" stroke="#4a90e2" stroke-width="1" />
+    <line x1="50" y1="0" x2="50" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="100" y1="0" x2="100" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="150" y1="0" x2="150" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="250" y1="0" x2="250" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="300" y1="0" x2="300" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="350" y1="0" x2="350" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="400" y1="0" x2="400" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="450" y1="0" x2="450" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="550" y1="0" x2="550" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="600" y1="0" x2="600" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="650" y1="0" x2="650" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="700" y1="0" x2="700" y2="400" stroke="#4a90e2" stroke-width="1" />
+    <line x1="750" y1="0" x2="750" y2="400" stroke="#4a90e2" stroke-width="1" />
+  </g>
+
+  <!-- Hero X Mark (Large, centered, glowing, with multiple layers) -->
+  <g transform="translate(400, 180)">
+    <!-- Outer glow ring -->
+    <circle cx="0" cy="0" r="100" fill="#4a90e2" opacity="0.05" />
+    <circle cx="0" cy="0" r="140" fill="#4a90e2" opacity="0.02" />
+
+    <!-- The Main X -->
+    <!-- Glow layer -->
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="25" stroke-linecap="round" filter="url(#glow)" opacity="0.5" />
+    <!-- Mid layer -->
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="12" stroke-linecap="round" />
+    <!-- Core layer -->
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="url(#xGrad)" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Duplicate X for depth (behind the main X) -->
+  <g transform="translate(400, 180) scale(1.3)" opacity="0.15">
+    <path d="M -50 -50 L 50 50 M 50 -50 L -50 50" stroke="#4a90e2" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Duplicate X for depth (in front, offset) -->
+  <g transform="translate(400, 180) scale(0.6) translate(80, -60)" opacity="0.3">
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="16" stroke-linecap="round" filter="url(#glow)" />
+  </g>
+
+  <!-- Brand Text: "xwllz" -->
+  <g transform="translate(400, 300)" filter="url(#textShadow)">
+    <!-- Subtle glow behind text -->
+    <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="80" font-weight="800" letter-spacing="12" fill="#4a90e2" opacity="0.3" filter="url(#glow)">xwllz</text>
+    
+    <!-- Main text -->
+    <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="80" font-weight="800" letter-spacing="12" fill="url(#textGrad)">xwllz</text>
+  </g>
+
+  <!-- Tagline (optional, adds a professional touch) -->
+  <g transform="translate(400, 345)">
+    <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="300" letter-spacing="6" fill="#e0e6ed" opacity="0.6">WALLS OF X</text>
+  </g>
+
+  <!-- Decorative corner X marks (to tie into the wall theme) -->
+  <g opacity="0.2">
+    <!-- Top Left -->
+    <path d="M 30 30 L 50 50 M 50 30 L 30 50" stroke="#4a90e2" stroke-width="4" stroke-linecap="round" />
+    <!-- Top Right -->
+    <path d="M 750 30 L 770 50 M 770 30 L 750 50" stroke="#4a90e2" stroke-width="4" stroke-linecap="round" />
+    <!-- Bottom Left -->
+    <path d="M 30 350 L 50 370 M 50 350 L 30 370" stroke="#4a90e2" stroke-width="4" stroke-linecap="round" />
+    <!-- Bottom Right -->
+    <path d="M 750 350 L 770 370 M 770 350 L 750 370" stroke="#4a90e2" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Bottom border accent (subtle) -->
+  <rect x="0" y="390" width="800" height="10" fill="url(#xGrad)" opacity="0.4" />
+</svg>

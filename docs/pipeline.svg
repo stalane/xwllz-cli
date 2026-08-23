@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#14161c" />
+      <stop offset="60%" stop-color="#0a0b0d" />
+      <stop offset="100%" stop-color="#050506" />
+    </radialGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0" />
+      <stop offset="50%" stop-color="#4a90e2" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#4a90e2" stop-opacity="0" />
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a90e2" />
+    </marker>
+    <marker id="arrowDim" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5c6b8f" />
+    </marker>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#bgGlow)" />
+
+  <!-- Corner X accents -->
+  <g opacity="0.15" stroke="#4a90e2" stroke-width="6" stroke-linecap="round">
+    <path d="M 40 40 L 80 80 M 80 40 L 40 80" />
+    <path d="M 1520 40 L 1560 80 M 1560 40 L 1520 80" />
+    <path d="M 40 620 L 80 660 M 80 620 L 40 660" />
+    <path d="M 1520 620 L 1560 660 M 1560 620 L 1520 660" />
+  </g>
+
+  <!-- Title -->
+  <text x="800" y="66" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="26" font-weight="700" letter-spacing="6" fill="#e0e6ed">THE ASM LOOP</text>
+  <rect x="720" y="84" width="160" height="3" fill="url(#lineGrad)" />
+
+  <!-- Phase 1: gather -->
+  <rect x="90" y="160" width="220" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="200" y="200" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">gather</text>
+  <text x="200" y="228" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">subdomains</text>
+  <text x="200" y="252" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">crt.sh · keyed · dnsx</text>
+
+  <line x1="312" y1="215" x2="388" y2="215" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Phase 2: resolve -->
+  <rect x="390" y="160" width="220" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="500" y="200" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">resolve</text>
+  <text x="500" y="228" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">A / AAAA</text>
+  <text x="500" y="252" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">live hosts only</text>
+
+  <line x1="612" y1="215" x2="688" y2="215" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Phase 3: scan -->
+  <rect x="690" y="160" width="220" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="800" y="200" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">scan</text>
+  <text x="800" y="228" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">open ports</text>
+  <text x="800" y="252" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">socket · nmap</text>
+
+  <line x1="912" y1="215" x2="988" y2="215" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Phase 4: probe -->
+  <rect x="990" y="160" width="220" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="1100" y="200" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">probe</text>
+  <text x="1100" y="228" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">HTTP · TLS · tech</text>
+  <text x="1100" y="252" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">title · headers · certs</text>
+
+  <line x1="1212" y1="215" x2="1288" y2="215" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Phase 5: detect -->
+  <rect x="1290" y="160" width="220" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="1400" y="200" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">detect</text>
+  <text x="1400" y="228" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">passive findings</text>
+  <text x="1400" y="252" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">SPF · DMARC · TLS · headers</text>
+
+  <!-- Arrow down from detect -->
+  <line x1="1400" y1="272" x2="1400" y2="330" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Phase 6: store (centered bottom) -->
+  <rect x="1210" y="332" width="380" height="110" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.7" stroke-width="2" />
+  <text x="1400" y="372" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">store + snapshot</text>
+  <text x="1400" y="400" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">SQLite · upsert with first/last seen</text>
+  <text x="1400" y="424" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">snapshot row for diffing</text>
+
+  <!-- Loop back arrow from store to gather (monitor) -->
+  <path d="M 1210 387 C 700 387 700 120 312 215" fill="none" stroke="#5c6b8f" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrowDim)" />
+  <text x="760" y="120" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="15" fill="#5c6b8f">xwllz monitor — re-run + diff new / changed / removed</text>
+
+  <!-- Report arrow down-right from store -->
+  <line x1="1400" y1="442" x2="1400" y2="470" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+
+  <!-- Report box -->
+  <rect x="1180" y="472" width="430" height="96" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.5" stroke-width="1.5" />
+  <text x="1395" y="508" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="18" font-weight="700" fill="#e0e6ed">report</text>
+  <text x="1395" y="536" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">xwllz report → markdown · JSON · HTML</text>
+  <text x="1395" y="558" text-anchor="middle" font-family="'SFMono-Regular',Consolas,monospace" font-size="13" fill="#aab4c6">xwllz status → live dashboard</text>
+
+  <!-- Blue-team posture callout -->
+  <rect x="90" y="360" width="600" height="150" rx="10" fill="#0a0b0d" stroke="#4a90e2" stroke-opacity="0.35" stroke-width="1.5" />
+  <text x="120" y="396" font-family="'SFMono-Regular',Consolas,monospace" font-size="16" font-weight="700" letter-spacing="2" fill="#4a90e2">BLUE-TEAM POSTURE FINDINGS</text>
+  <g font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">
+    <text x="120" y="428">missing SPF / DMARC / DKIM  ·  DMARC p=none</text>
+    <text x="120" y="456">expiring or expired TLS certificates</text>
+    <text x="120" y="484">missing security headers (HSTS · CSP · nosniff)</text>
+    <text x="120" y="512">exposed high-risk ports (RDP · SMB · FTP · DB)</text>
+  </g>
+
+  <rect x="720" y="360" width="360" height="150" rx="10" fill="#0a0b0d" stroke="#1a2a3a" stroke-width="1.5" />
+  <text x="750" y="396" font-family="'SFMono-Regular',Consolas,monospace" font-size="16" font-weight="700" letter-spacing="2" fill="#e0e6ed">NO BINARIES REQUIRED</text>
+  <text x="750" y="428" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">pure Python default</text>
+  <text x="750" y="456" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">pip install xwllz</text>
+  <text x="750" y="484" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">works anywhere ≥ 3.10</text>
+</svg>
