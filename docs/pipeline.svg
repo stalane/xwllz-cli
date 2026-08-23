@@ -105,6 +105,6 @@
   <rect x="720" y="360" width="360" height="150" rx="10" fill="#0a0b0d" stroke="#1a2a3a" stroke-width="1.5" />
   <text x="750" y="396" font-family="'SFMono-Regular',Consolas,monospace" font-size="16" font-weight="700" letter-spacing="2" fill="#e0e6ed">NO BINARIES REQUIRED</text>
   <text x="750" y="428" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">pure Python default</text>
-  <text x="750" y="456" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">pip install xwllz</text>
+  <text x="750" y="456" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">pipx install xwllz</text>
   <text x="750" y="484" font-family="'SFMono-Regular',Consolas,monospace" font-size="14" fill="#aab4c6">works anywhere ≥ 3.10</text>
 </svg>

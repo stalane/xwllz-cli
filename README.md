@@ -38,7 +38,7 @@ removed** across your perimeter.
 ## Quickstart
 
 ```bash
-pip install xwllz
+pipx install xwllz
 
 xwllz init acme --domains example.com,corp.example.com
 xwllz discover acme
