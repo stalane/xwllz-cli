@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/x.svg" width="420" alt="xwllz">
+  <img src="x.svg" width="420" alt="xwllz">
 </p>
 
 # xwllz — Attack-surface management for blue teams
