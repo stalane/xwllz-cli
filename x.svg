@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Glow filter for the X mark -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradient for the X mark's stroke -->
+    <linearGradient id="xGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a90e2" />
+      <stop offset="100%" stop-color="#e0e6ed" />
+    </linearGradient>
+
+    <!-- Gradient for text -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e0e6ed" />
+      <stop offset="100%" stop-color="#4a90e2" />
+    </linearGradient>
+
+    <!-- Drop shadow for text -->
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+
+    <!-- Small floating X's -->
+    <g id="scatterX">
+      <path d="M -10 -10 L 10 10 M 10 -10 L -10 10" stroke="#4a90e2" stroke-width="4" stroke-linecap="round" filter="url(#glow)" opacity="0.6" />
+      <path d="M -10 -10 L 10 10 M 10 -10 L -10 10" stroke="#e0e6ed" stroke-width="1" stroke-linecap="round" />
+    </g>
+  </defs>
+
+  <!-- Main X Mark -->
+  <g transform="translate(250, 180)">
+    <!-- Outer ambient glow rings -->
+    <circle cx="0" cy="0" r="100" fill="#4a90e2" opacity="0.05" />
+    <circle cx="0" cy="0" r="140" fill="#4a90e2" opacity="0.02" />
+
+    <!-- The Main X (3 layers: glow, mid, core) -->
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="25" stroke-linecap="round" filter="url(#glow)" opacity="0.5" />
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="12" stroke-linecap="round" />
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="url(#xGrad)" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Duplicate X for depth (behind the main X) -->
+  <g transform="translate(250, 180) scale(1.3)" opacity="0.15">
+    <path d="M -50 -50 L 50 50 M 50 -50 L -50 50" stroke="#4a90e2" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Duplicate X for depth (in front, offset) -->
+  <g transform="translate(250, 180) scale(0.6) translate(80, -60)" opacity="0.3">
+    <path d="M -60 -60 L 60 60 M 60 -60 L -60 60" stroke="#4a90e2" stroke-width="16" stroke-linecap="round" filter="url(#glow)" />
+  </g>
+
+  <!-- Scattered X's breaking the symmetry -->
+  <use href="#scatterX" transform="translate(120, 120) rotate(15) scale(1.2)" />
+  <use href="#scatterX" transform="translate(400, 100) rotate(-25) scale(1.5)" />
+  <use href="#scatterX" transform="translate(90, 380) rotate(45) scale(1)" />
+  <use href="#scatterX" transform="translate(420, 360) rotate(45) scale(1)" />
+  <use href="#scatterX" transform="translate(80, 250) rotate(30) scale(0.8)" opacity="0.5" />
+  <use href="#scatterX" transform="translate(420, 250) rotate(-45) scale(0.9)" opacity="0.7" />
+
+  <!-- Brand Text: "xwallz" -->
+  <g transform="translate(250, 310)" filter="url(#textShadow)">
+    <!-- Subtle glow behind text -->
+    <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="70" font-weight="800" letter-spacing="10" fill="#4a90e2" opacity="0.3" filter="url(#glow)">xwallz</text>
+    
+    <!-- Main text -->
+    <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="70" font-weight="800" letter-spacing="10" fill="url(#textGrad)">xwallz</text>
+  </g>
+</svg>
