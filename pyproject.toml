@@ -31,7 +31,7 @@ dependencies = [
 xwllz = "xwllz.cli:app"
 
 [project.urls]
-Homepage = "https://xwllz.pages.dev"
+Homepage = "https://xwllz.com"
 Repository = "https://github.com/stalane/xwllz-cli"
 
 [tool.hatch.build.targets.wheel]
